@@ -14,7 +14,7 @@ class Student extends Model
         'email', 
         'phone', 
         'dob', 
-        'device_id'
+        'college_id'
     ];
 
     public function college(){
