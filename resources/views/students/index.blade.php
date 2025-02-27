@@ -9,7 +9,8 @@
                     <h2>Manage <b>Students</b></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>					</div>
+                    <a href="{{ route('students.create')}}" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>					
+                </div>
             </div>
         </div>
         <table class="table table-striped table-hover">
@@ -24,6 +25,9 @@
                 </tr>
             </thead>
             <tbody>
+                @if ($message = session('message'))
+                    <div class="alert alert-success">{{ $message }}</div>
+                @endif
                 @if ($students->count())
                     @foreach ($students as $index => $student)
                         <tr>
