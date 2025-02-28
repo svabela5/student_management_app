@@ -21,7 +21,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="{{ route('students.index')}}">Students</a></li>
-                <li><a href="#">Colleges</a></li>
+                <li><a href="{{ route('colleges.index')}}">Colleges</a></li>
             </ul>
         </div>
     </nav>
