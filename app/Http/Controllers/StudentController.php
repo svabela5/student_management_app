@@ -46,8 +46,8 @@ class StudentController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'email' => 'required',//|unique:students',
-            'phone' => 'required|regex:/^\+?\d*$/',
+            'email' => ['required', Rule::unique('students')->ignore($id)],
+            'phone' => ['required', 'regex:/^\+?\d*$/', Rule::unique('students')->ignore($id)],
             'dob' => 'required',
             'college_id' => 'required|exists:colleges,id'
         ]);

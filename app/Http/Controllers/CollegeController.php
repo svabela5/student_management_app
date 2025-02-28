@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\College;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class CollegeController extends Controller
 {
@@ -37,7 +38,7 @@ class CollegeController extends Controller
         $college = College::find(id: $id);
 
         $request->validate([
-            'name' => 'required',//|unique:colleges',
+            'name' => ['required', Rule::unique('colleges')->ignore($college->id)],
             'address' => 'required'
         ]);
 
