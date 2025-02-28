@@ -33,3 +33,7 @@ Route::put('/students/{id}', [StudentController::class, 'update'])->name('studen
 Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
 
 Route::get('/colleges', action: [CollegeController::class, 'index'])->name('colleges.index');
+
+Route::get('/colleges/create', [CollegeController::class, 'create'])->name('colleges.create');
+
+Route::post('/colleges', [CollegeController::class, 'store'])->name('colleges.store');

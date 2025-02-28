@@ -9,7 +9,7 @@
                     <h2>Manage <b>Students</b></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a href="{{ route('students.create')}}" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>					
+                    <a href="{{ route('students.create')}}" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Add New Student</span></a>					
                 </div>
             </div>
         </div>

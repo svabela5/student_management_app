@@ -9,7 +9,7 @@
                     <h2>Manage <b>Colleges</b></h2>
                 </div>
                 <div class="col-sm-6">
-                    <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+                    <a href="{{ route('colleges.create')}}" class="btn btn-success"><i class="material-icons">&#xE147;</i> <span>Add New College</span></a>
                 </div>
             </div>
         </div>
@@ -22,14 +22,17 @@
                 </tr>
             </thead>
             <tbody>
+                @if ($message = session('message'))
+                    <div class="alert alert-success">{{ $message }}</div>
+                @endif
                 @if ($colleges->count())
                     @foreach ($colleges as $index => $college)
                     <tr>
                         <td>{{$college->name}}</td>
                         <td>{{$college->address}}</td>
                         <td>
-                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                            {{-- <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> --}}
+                            <a href="#editCollegeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            {{-- <a href="#deleteCollegeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> --}}
                         </td>
                     </tr>
                     @endforeach
@@ -38,12 +41,12 @@
         </table>
     </div>
     <!-- Delete Modal HTML -->
-    <div id="deleteEmployeeModal" class="modal fade">
+    <div id="deleteCollegeModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form>
                     <div class="modal-header">						
-                        <h4 class="modal-title">Delete Employee</h4>
+                        <h4 class="modal-title">Delete College</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">					
