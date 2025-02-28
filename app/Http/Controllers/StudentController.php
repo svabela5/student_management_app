@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\College;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class StudentController extends Controller
 {
@@ -16,7 +17,8 @@ class StudentController extends Controller
 
     public function create(){
         $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('Select College', '');
-        return view('students.create', compact('colleges'));
+        $student = new Student();
+        return view('students.create', compact('colleges', 'student'));
     }
 
     public function store(Request $request){
@@ -29,6 +31,28 @@ class StudentController extends Controller
         ]);
 
         Student::create($request->all());
+        return redirect()->route('students.index')->with('message', 'Student has been added successfully');
+    }
+
+    public function edit($id){
+        $student = Student::find($id);
+        $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('Select College', '');
+        
+        return view('students.edit', compact('colleges', 'student'));
+    }
+
+    public function update($id, Request $request){
+        $student = Student::find($id);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',//|unique:students',
+            'phone' => 'required|regex:/^\+?\d*$/',
+            'dob' => 'required',
+            'college_id' => 'required|exists:colleges,id'
+        ]);
+
+        $student->update($request->all());
         return redirect()->route('students.index')->with('message', 'Student has been added successfully');
     }
 }
