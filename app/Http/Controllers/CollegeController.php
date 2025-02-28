@@ -26,4 +26,22 @@ class CollegeController extends Controller
         College::create($request->all());
         return redirect()->route('colleges.index')->with('message', 'College has been added successfully');
     }
+
+    public function edit($id){
+        $college = College::find(id: $id);
+        
+        return view('colleges.edit', compact('college'));
+    }
+
+    public function update($id, Request $request){
+        $college = College::find(id: $id);
+
+        $request->validate([
+            'name' => 'required',//|unique:colleges',
+            'address' => 'required'
+        ]);
+
+        $college->update($request->all());
+        return redirect()->route('colleges.index')->with('message', 'College has been added successfully');
+    }
 }

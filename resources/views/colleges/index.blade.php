@@ -31,7 +31,7 @@
                         <td>{{$college->name}}</td>
                         <td>{{$college->address}}</td>
                         <td>
-                            <a href="#editCollegeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="{{ route('colleges.edit', $college->id) }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                             {{-- <a href="#deleteCollegeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a> --}}
                         </td>
                     </tr>

@@ -37,3 +37,7 @@ Route::get('/colleges', action: [CollegeController::class, 'index'])->name('coll
 Route::get('/colleges/create', [CollegeController::class, 'create'])->name('colleges.create');
 
 Route::post('/colleges', [CollegeController::class, 'store'])->name('colleges.store');
+
+Route::get('/colleges/{id}/edit', [CollegeController::class, 'edit'])->name('colleges.edit');
+
+Route::put('/colleges/{id}', [CollegeController::class, 'update'])->name('colleges.update');
