@@ -38,7 +38,7 @@
                             <td>{{$student->college->name}}</td>
                             <td>
                                 <a href="{{ route('students.edit', $student->id) }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="{{ route( 'students.destroy', $student->id) }}" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -50,7 +50,9 @@
     <div id="deleteModal" class="modal fade">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form>
+                <form id="form-delete" method="POST">
+                    @method('DELETE')
+                    @csrf
                     <div class="modal-header">						
                         <h4 class="modal-title">Delete Student</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
