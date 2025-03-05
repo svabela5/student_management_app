@@ -11,17 +11,23 @@ class StudentController extends Controller
 {
     //
     public function index(){
-        // $students = Student::all();
+        $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Colleges', '');
 
         $orderBy = request('order');
+        $collegeID = request('college_id');
+
         if($orderBy != '' && $orderBy != 'none'){
             $students = Student::orderBy('name', $orderBy)->get();
         }else{
             $students = Student::all();
         }
 
+        if($collegeID != ''){
+            $students = $students->where('college_id', $collegeID);
+        }
 
-        return view('students.index', compact('students'));
+
+        return view('students.index', compact('students', 'colleges'));
     }
 
     public function create(){

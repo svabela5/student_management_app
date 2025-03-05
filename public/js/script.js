@@ -9,9 +9,11 @@ document.querySelectorAll('.delete').forEach((button) => {
 });
 
 let orderBy = "none";
+let collegeIdFilter = document.getElementById('collegeIdFilter');
 
 function setFilters(){
-    window.location.href = window.location.href.split('?')[0] + '?order='+ orderBy
+    let collegeID = collegeIdFilter.value;
+    window.location.href = window.location.href.split('?')[0] + '?order='+ orderBy + '&college_id=' + collegeID;
 }
 
 function sortTable() {
@@ -29,4 +31,8 @@ function sortTable() {
     }
 
     setFilters();
+}
+
+if (collegeIdFilter != null){
+    collegeIdFilter.addEventListener('change', setFilters);
 }

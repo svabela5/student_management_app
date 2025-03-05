@@ -12,6 +12,7 @@
                     <a href="{{ route('students.create')}}" class="btn btn-success" ><i class="material-icons">&#xE147;</i> <span>Add New Student</span></a>					
                 </div>
             </div>
+            @include('students._filter')
         </div>
         <table class="table table-striped table-hover">
             <thead>
