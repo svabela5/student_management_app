@@ -11,7 +11,16 @@ class StudentController extends Controller
 {
     //
     public function index(){
-        $students = Student::all();
+        // $students = Student::all();
+
+        $orderBy = request('order');
+        if($orderBy != '' && $orderBy != 'none'){
+            $students = Student::orderBy('name', $orderBy)->get();
+        }else{
+            $students = Student::all();
+        }
+
+
         return view('students.index', compact('students'));
     }
 

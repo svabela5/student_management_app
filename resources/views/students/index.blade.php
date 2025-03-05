@@ -16,7 +16,7 @@
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th onclick="sortTable()" id="nameHeader" style="width: 12%;">Name <span id="arrow">{{"asc" == request('order') ? '↑' : ("desc" == request('order') ? '↓' : '↑↓')}}</span></th>
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Date of Birth</th>
