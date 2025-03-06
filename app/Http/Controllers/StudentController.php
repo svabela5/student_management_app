@@ -30,6 +30,11 @@ class StudentController extends Controller
         return view('students.index', compact('students', 'colleges'));
     }
 
+    public function show($id){
+        $student = Student::find($id);
+        return view('students.show', compact('student'));
+    }
+
     public function create(){
         $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('Select College', '');
         $student = new Student();

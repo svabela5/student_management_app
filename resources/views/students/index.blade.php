@@ -22,7 +22,7 @@
                     <th>Phone</th>
                     <th>Date of Birth</th>
                     <th>College</th>
-                    <th>Actions</th>
+                    <th style="width: 15%;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +38,7 @@
                             <td>{{$student->dob}}</td>
                             <td>{{$student->college->name}}</td>
                             <td>
+                                <a href="{{ route('students.show', $student->id)}}" class="view"><i class="material-icons" title="View">&#xE417;</i></a> 
                                 <a href="{{ route('students.edit', $student->id) }}" class="edit"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                 <a href="{{ route( 'students.destroy', $student->id) }}" class="delete"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                             </td>
