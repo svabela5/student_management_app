@@ -22,8 +22,6 @@ Route::get('/', function () {
 
 Route::get('/students', action: [StudentController::class, 'index'])->name('students.index');
 
-Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
-
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
 Route::post('/students', [StudentController::class, 'store'])->name('students.store');
@@ -34,6 +32,8 @@ Route::put('/students/{id}', [StudentController::class, 'update'])->name('studen
 
 Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
 
+Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
+
 Route::get('/colleges', action: [CollegeController::class, 'index'])->name('colleges.index');
 
 Route::get('/colleges/create', [CollegeController::class, 'create'])->name('colleges.create');
@@ -43,3 +43,5 @@ Route::post('/colleges', [CollegeController::class, 'store'])->name('colleges.st
 Route::get('/colleges/{id}/edit', [CollegeController::class, 'edit'])->name('colleges.edit');
 
 Route::put('/colleges/{id}', [CollegeController::class, 'update'])->name('colleges.update');
+
+Route::get('/colleges/{id}', [CollegeController::class, 'show'])->name('colleges.show');

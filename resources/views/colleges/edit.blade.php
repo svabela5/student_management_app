@@ -6,7 +6,7 @@
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h2>Edit <b>Student</b></h2>
+                    <h2>Edit <b>College</b></h2>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
             @include('colleges._form')
             
             <div class="modal-footer">
-                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                <a href="{{ route('colleges.index')}}" class="btn btn-default">Cancel</a>
                 <input type="submit" class="btn btn-success" value="Update">
             </div>
         </form>

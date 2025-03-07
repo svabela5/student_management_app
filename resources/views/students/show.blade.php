@@ -6,7 +6,7 @@
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h2><b>Device</b> Information</h2>
+                    <h2><b>Student</b> Information</h2>
                 </div>
             </div>
         </div>
