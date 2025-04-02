@@ -44,7 +44,7 @@ class StudentController extends Controller
     public function store(Request $request){
         $request->validate([
             'name' => 'required',
-            'email' => 'required|unique:students',
+            'email' => 'required|email|unique:students',
             'phone' => 'required|unique:students|regex:/^\+?\d*$/',
             'dob' => 'required',
             'college_id' => 'required|exists:colleges,id'
@@ -66,7 +66,7 @@ class StudentController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'email' => ['required', Rule::unique('students')->ignore($id)],
+            'email' => ['required', 'email', Rule::unique('students')->ignore($id)],
             'phone' => ['required', 'regex:/^\+?\d*$/', Rule::unique('students')->ignore($id)],
             'dob' => 'required',
             'college_id' => 'required|exists:colleges,id'
